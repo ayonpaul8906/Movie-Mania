@@ -9,6 +9,7 @@ import axios from "axios";
 function Movies() {
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
+  const [Watchlist, setWatchlist] = useState([]);
 
   function goToNextPage(){
         setPage(page+1);
@@ -22,7 +23,7 @@ function Movies() {
   useEffect(() => {
     axios
       .get(
-        `https://api.themoviedb.org/3/movie/popular?api_key=your_api_key=en-US&page=${page}`
+        `https://api.themoviedb.org/3/movie/popular?api_key=fc4194d454df000ba47adb8aa6b06431&language=en-US&page=${page}`
       )
       .then((response) => {
         setMovies(response.data.results || []);
@@ -33,6 +34,18 @@ function Movies() {
         console.error(error);
       });
   }, [page]);
+
+   function addToWatchlist(movie) {
+        let newWatchlist = [...Watchlist, movie];
+        setWatchlist(newWatchlist);
+        console.log(newWatchlist);
+    }
+
+    function removeFromWatchlist(movie) {
+        let filterWatchlist = Watchlist.filter(m => m.id !== movie.id);  
+        setWatchlist(filterWatchlist);
+        console.log(filterWatchlist);  
+    }
 
   return (
     <div>
@@ -50,6 +63,10 @@ function Movies() {
               key={index}
               poster_path={movie.poster_path}
               name={movie.original_title}
+              movie={movie}
+              Watchlist={Watchlist}
+              addToWatchlist={()=>{addToWatchlist(movie)}}
+              removeFromWatchlist={()=>{removeFromWatchlist(movie)}}
             />
           );
         })}
