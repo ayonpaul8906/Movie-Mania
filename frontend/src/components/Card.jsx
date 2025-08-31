@@ -18,12 +18,12 @@ function Card({ poster_path, name, movie, Watchlist, addToWatchlist, removeFromW
       }}
     >
       {doescontainMovie() ? (
-        <div onClick={removeFromWatchlist} className="text-white h-7 w-7 m-1 bg-gray-900/60 rounded-lg flex items-center justify-center text-xl">
+        <div onClick={()=>{removeFromWatchlist(movie)}} className="text-white h-7 w-7 m-1 bg-gray-900/60 rounded-lg flex items-center justify-center text-xl">
           <i class="fa-solid fa-trash"></i>
         </div>
       ) : (
         <div
-          onClick={addToWatchlist}
+          onClick={()=>{addToWatchlist(movie)}}
           className="text-red-600 h-7 w-7 m-1 bg-gray-900/60 rounded-lg flex items-center justify-center text-xl"
         >
           <i class="fa-solid fa-heart"></i>

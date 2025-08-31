@@ -1,7 +1,7 @@
 import React from 'react'
 import Navbar from './Navbar'
 
-function Watchlist() {
+function Watchlist({Watchlist}) {
   return (
     <div>
       <>
@@ -29,17 +29,20 @@ function Watchlist() {
             </thead>
 
             <tbody>
-              <tr className='border-b-2 border-gray-300'>
+              {Watchlist.map((movie, index) => {
+                return <tr className='border-b-2 border-gray-300'>
                 <td className='p-2 m-2 flex items-center'>
-                  <img className='w-[8rem] h-[8rem]' src={`https://m.media-amazon.com/images/I/81vRg6RVaFL.jpg`}/>
-                  <div className='mx-10 text-xl'>Joker</div>
+                  <img className='w-[8rem] h-[8rem]' src={`https://image.tmdb.org//t/p/original/${movie.poster_path}`}/>
+                  <div className='mx-10 text-xl'>{movie.original_title}</div>
                 </td>
-                <td>8.5</td>
-                <td>9</td>
+                <td>{movie.vote_average}</td>
+                <td>{movie.popularity}</td>
                 <td>Thriller</td>
 
                 <td className='text-red-800 hover:cursor-pointer'>Delete</td>
               </tr>
+
+              })}              
             </tbody>
           </table>
         </div>

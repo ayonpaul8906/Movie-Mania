@@ -6,10 +6,9 @@ import Card from "./Card";
 import Pagination from "./Pagination";
 import axios from "axios";
 
-function Movies() {
+function Movies({Watchlist, addToWatchlist, removeFromWatchlist}) {
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
-  const [Watchlist, setWatchlist] = useState([]);
 
   function goToNextPage(){
         setPage(page+1);
@@ -35,18 +34,6 @@ function Movies() {
       });
   }, [page]);
 
-   function addToWatchlist(movie) {
-        let newWatchlist = [...Watchlist, movie];
-        setWatchlist(newWatchlist);
-        console.log(newWatchlist);
-    }
-
-    function removeFromWatchlist(movie) {
-        let filterWatchlist = Watchlist.filter(m => m.id !== movie.id);  
-        setWatchlist(filterWatchlist);
-        console.log(filterWatchlist);  
-    }
-
   return (
     <div>
       <Navbar />
@@ -65,8 +52,8 @@ function Movies() {
               name={movie.original_title}
               movie={movie}
               Watchlist={Watchlist}
-              addToWatchlist={()=>{addToWatchlist(movie)}}
-              removeFromWatchlist={()=>{removeFromWatchlist(movie)}}
+              addToWatchlist={addToWatchlist}
+              removeFromWatchlist={removeFromWatchlist}
             />
           );
         })}
