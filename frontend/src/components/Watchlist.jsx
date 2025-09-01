@@ -1,5 +1,6 @@
 import React from 'react'
 import Navbar from './Navbar'
+import genreids from'../utility/genre'
 
 function Watchlist({Watchlist, setWatchlist}) {
 
@@ -64,7 +65,7 @@ function Watchlist({Watchlist, setWatchlist}) {
                 </td>
                 <td>{movie.vote_average}</td>
                 <td>{movie.popularity}</td>
-                <td>Thriller</td>
+                <td>{genreids[movie.genre_ids[0]]}</td>
 
                 <td className='text-red-800 hover:cursor-pointer'>Delete</td>
               </tr>
