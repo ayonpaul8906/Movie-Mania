@@ -42,28 +42,82 @@
 
 ## 📦 Project Structure
 
+```plaintext
 Movie-Mania/
 └─ frontend/
-├─ public/
-│ └─ logo.png
-├─ src/
-│ ├─ components/
-│ │ ├─ Banner.jsx
-│ │ ├─ Card.jsx
-│ │ ├─ Movies.jsx
-│ │ ├─ Navbar.jsx
-│ │ ├─ Pagination.jsx
-│ │ └─ Watchlist.jsx
-│ ├─ utility/
-│ │ └─ genre.js
-│ ├─ App.css
-│ ├─ App.jsx
-│ └─ main.jsx
-├─ .env
-├─ .gitignore
-├─ eslint.config.js
-├─ index.html
-├─ package.json
-├─ vite.config.js 
-└─ README.md
+   ├─ public/
+   │  └─ logo.png
+   ├─ src/
+   │  ├─ components/
+   │  │  ├─ Banner.jsx
+   │  │  ├─ Card.jsx
+   │  │  ├─ Movies.jsx
+   │  │  ├─ Navbar.jsx
+   │  │  ├─ Pagination.jsx
+   │  │  └─ Watchlist.jsx
+   │  ├─ utility/
+   │  │  └─ genre.js
+   │  ├─ App.css
+   │  ├─ App.jsx
+   │  └─ main.jsx
+   ├─ .env
+   ├─ .gitignore
+   ├─ eslint.config.js
+   ├─ index.html
+   ├─ package.json
+   ├─ vite.config.js
+   └─ README.md
+```
+
+
+---
+
+## ⚙️ Getting Started
+
+### 1) Clone
+```bash
+git clone https://github.com/ayonpaul8906/Movie-Mania.git
+cd Movie-Mania/frontend
+```
+
+### 2) Install
+```bash
+npm install
+```
+
+### 3) Configure Environment
+Add your TMDb API key to the existing `.env` file:
+
+```bash
+VITE_TMDB_API_KEY=your_tmdb_api_key
+```
+
+### 4) Build
+```bash
+npm run build
+```
+
+### 1) Run the App
+```bash
+npm run dev
+```
+
+## 🤝 Contributing
+
+Contributions are welcome!  
+Fork the repo, create a feature branch, and open a PR.
+
+```bash
+git checkout -b feat/amazing-improvement
+git commit -m "feat: add amazing improvement"
+git push origin feat/amazing-improvement
+```
+
+## 💙 Acknowledgements
+
+- TMDb for the incredible movie database and API.
+- React & open-source community.
+
+
+
 
