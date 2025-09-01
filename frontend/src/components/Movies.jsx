@@ -9,6 +9,8 @@ import axios from "axios";
 function Movies({Watchlist, addToWatchlist, removeFromWatchlist}) {
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
+  const apiKey = import.meta.env.VITE_API_KEY;
+
 
   function goToNextPage(){
         setPage(page+1);
@@ -22,11 +24,10 @@ function Movies({Watchlist, addToWatchlist, removeFromWatchlist}) {
   useEffect(() => {
     axios
       .get(
-        `https://api.themoviedb.org/3/movie/popular?api_key=fc4194d454df000ba47adb8aa6b06431&language=en-US&page=${page}`
+        `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=${page}`
       )
       .then((response) => {
         setMovies(response.data.results || []);
-        console.log(response.data || []);
         setPage(response.data.page || 1);
       })
       .catch((error) => {

@@ -36,7 +36,6 @@ function Watchlist({ Watchlist, setWatchlist, removeFromWatchlist }) {
     });
     genre = new Set(genre);
     setGenreList(["All", ...genre]);
-    console.log(genre);
   }, [Watchlist]);
 
   return (  
