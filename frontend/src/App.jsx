@@ -13,13 +13,13 @@ function App() {
     let newWatchlist = [...watchlist, movie];
     localStorage.setItem('watchlist', JSON.stringify(newWatchlist));
     setWatchlist(newWatchlist);
-    console.log(newWatchlist);
+
   }
 
   function removeFromWatchlist(movie) {
     let filterWatchlist = watchlist.filter(m => m.id !== movie.id);  
-    setWatchlist(filterWatchlist);
-    console.log(filterWatchlist);  
+    localStorage.setItem('watchlist', JSON.stringify(filterWatchlist));
+    setWatchlist(filterWatchlist); 
   }
 
   useEffect(() => {
